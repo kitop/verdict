@@ -39,6 +39,7 @@
       o = $.extend(defaults, o);
       numberDrag = function(elem) {
         elem.css('cursor', 'col-resize');
+        elem.data("value", Number(elem.text().replace(/,/g, '')));
         elem.mousedown(function(e) {
           var x;
           document.body.onselectstart = function() {
@@ -53,11 +54,12 @@
           return $(window).bind('mousemove.numbers', function(change) {
             var dir, val;
             dir = 2 * (x < change.pageX) - 1;
-            val = Number(elem.text().replace(/,/g, ''));
+            val = elem.data("value");
             val = Math.max(Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), o.max || Infinity), o.min || -Infinity);
             if (o.integer != null) {
               val = Math.floor(val);
             }
+            elem.data('value', val);
             elem.text($.format.num(val));
             x = change.pageX;
             return elem.trigger('verdictChange', val);

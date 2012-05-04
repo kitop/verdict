@@ -34,6 +34,7 @@
     # Add the event handlers
     numberDrag = (elem) ->
       elem.css('cursor', 'col-resize')
+      elem.data("value", Number(elem.text().replace(/,/g,'')))
       elem.mousedown (e) ->
         document.body.onselectstart = -> false
         document.body.style.MozUserSelect = "none"
@@ -43,9 +44,10 @@
         $(window).bind 'mousemove.numbers', (change) ->
           # pageX is cross-browser normalized by jQuery
           dir = 2 * (x < change.pageX) - 1 # if x < lastX then 1 else -1 :-)
-          val = Number(elem.text().replace(/,/g,''))
+          val = elem.data("value")
           val = Math.max(Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), o.max || Infinity), o.min || -Infinity)
           val = Math.floor(val) if o.integer?
+          elem.data('value', val);
           elem.text($.format.num val)
           x = change.pageX
 

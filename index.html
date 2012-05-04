@@ -237,9 +237,9 @@
 		<div class='desc'>
 			<h2>Number Selection</h2>
 			<div class='example'>
-				<blockquote>Addiction should never be treated as a crime. It has to be treated as a health problem. We do not send alcoholics to jail in this country. Over <span id='ralph-nader' class='adjustable-number'>500,000</span> people are in our jails who are nonviolent drug users.</blockquote>
+				<blockquote>Addiction should never be treated as a crime. It has to be treated as a health problem. We do not send alcoholics to jail in this country. Over <span id='ralph-nader' class='adjustable-number'>1,000</span> people are in our jails who are nonviolent drug users.</blockquote>
 				<pre class='sh_javascript_dom'>
-$("#ralph-nader").numbers({max: 1000000, min: 2, step: 80});</pre>
+$("#ralph-nader").numbers({max: 1000000, min: 1, step: 1});</pre>
 			</div>
 		</div>
 		
@@ -248,10 +248,10 @@ $("#ralph-nader").numbers({max: 1000000, min: 2, step: 80});</pre>
 			<div class='example'>
 				<blockquote>Theodore Robert "Ted" Bundy  was an American <span class='boolean-toggle' id='ted1'>serial killer</span>, <span id='ted2' class='boolean-toggle' >rapist</span>, <span id='ted3' class='boolean-toggle' >kidnapper</span>, and <span id='ted4' class='boolean-toggle' >necrophile</span> who assaulted and murdered numerous young women during the 1970s, and possibly earlier. </blockquote>
 				<pre class='sh_javascript_dom'>
-$("#ted1").bool_select({first: 'serial killer', second: 'serial entrepreneur'});
-$("#ted2").bool_select({first: 'rapist', second: 'rapper'});
-$("#ted3").bool_select({first: 'kidnapper', second: 'babysitter'});
-$("#ted4").bool_select({first: 'necrophile', second: 'overall, a very decent man'});</pre>
+$("#ted1").boolSelect({first: 'serial killer', second: 'serial entrepreneur'});
+$("#ted2").boolSelect({first: 'rapist', second: 'rapper'});
+$("#ted3").boolSelect({first: 'kidnapper', second: 'babysitter'});
+$("#ted4").boolSelect({first: 'necrophile', second: 'overall, a very decent man'});</pre>
 			</div>
 		</div>
 		
@@ -262,7 +262,7 @@ $("#ted4").bool_select({first: 'necrophile', second: 'overall, a very decent man
 		
 		<div class='desc'>
 			<h2>Reactive Documents</h2>
-			<p><code>verdict_change</code> is fired on every change. Just bind to it.
+			<p><code>verdictChange</code> is fired on every change. Just bind to it.
 			<blockquote>nearly <span id='system-of-a-down' class='adjustable-number'>2,000,000</span> americans are<br />
 				incarcerated in the prison system<br />
 				prison system of the US<br />
@@ -279,7 +279,7 @@ $("#ted4").bool_select({first: 'necrophile', second: 'overall, a very decent man
 				For you and me!<br />
 			<pre class='sh_javascript_dom'>
 $("#system-of-a-down").numbers({max: 10000000, min: 0, step: 10000})
-  .bind("verdict_change", function(e, prisoners) {
+  .bind("verdictChange", function(e, prisoners) {
     // 68,747,203,000 / 2,000,000
     $("#prison-budget").text(
       $.format.num(Math.floor(prisoners * 34373.6015)));
@@ -305,18 +305,18 @@ if(!this.sh_languages){this.sh_languages={}}var sh_requests={};function sh_isEma
 	$(function() {
 		sh_highlightDocument();
 		
-		$("#ralph-nader").numbers({max: 1000000, min: 2, step: 80});
+		$("#ralph-nader").numbers({max: 1000000, min: 1, step: 1});
 		
 		$("#system-of-a-down").numbers({max: 10000000, min: 0, step: 10000})
-			.bind("verdict_change", function(e, prisoners) {
+			.bind("verdictChange", function(e, prisoners) {
 				// 68,747,203,000 / 2,000,000
 				$("#prison-budget").text($.format.num(Math.floor(prisoners * 34373.6015)));
 		});
 		
-		$("#ted1").bool_select({first: 'serial killer', second: 'serial entrepreneur'});
-		$("#ted2").bool_select({first: 'rapist', second: 'rapper'});
-		$("#ted3").bool_select({first: 'kidnapper', second: 'babysitter'});
-		$("#ted4").bool_select({first: 'necrophile', second: 'overall, a very decent man'});
+		$("#ted1").boolSelect({first: 'serial killer', second: 'serial entrepreneur'});
+		$("#ted2").boolSelect({first: 'rapist', second: 'rapper'});
+		$("#ted3").boolSelect({first: 'kidnapper', second: 'babysitter'});
+		$("#ted4").boolSelect({first: 'necrophile', second: 'overall, a very decent man'});
 	});
 </script>
 </body>

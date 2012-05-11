@@ -239,7 +239,7 @@
 			<div class='example'>
 				<blockquote>Addiction should never be treated as a crime. It has to be treated as a health problem. We do not send alcoholics to jail in this country. Over <span id='ralph-nader' class='adjustable-number'>1,000</span> people are in our jails who are nonviolent drug users.</blockquote>
 				<pre class='sh_javascript_dom'>
-$("#ralph-nader").numbers({max: 1000000, min: 1, step: 1});</pre>
+$("#ralph-nader").numbers({max: 1000000, min: 0, step: 10});</pre>
 			</div>
 		</div>
 		
@@ -305,7 +305,7 @@ if(!this.sh_languages){this.sh_languages={}}var sh_requests={};function sh_isEma
 	$(function() {
 		sh_highlightDocument();
 		
-		$("#ralph-nader").numbers({max: 1000000, min: 1, step: 1});
+		$("#ralph-nader").numbers({max: 1000000, min: 0, step: 10});
 		
 		$("#system-of-a-down").numbers({max: 10000000, min: 0, step: 10000})
 			.bind("verdictChange", function(e, prisoners) {

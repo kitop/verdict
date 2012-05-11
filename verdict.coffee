@@ -45,7 +45,7 @@
           # pageX is cross-browser normalized by jQuery
           dir = 2 * (x < change.pageX) - 1 # if x < lastX then 1 else -1 :-)
           val = elem.data("value")
-          val = Math.max(Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), o.max || Infinity), o.min || -Infinity)
+          val = Math.max(Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), if o.max == 0 then o.max else (o.max || Infinity) ), if o.min == 0 then o.min else (o.min || -Infinity))
           val = Math.floor(val) if o.integer?
           elem.data('value', val);
           elem.text($.format.num val)

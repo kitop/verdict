@@ -55,7 +55,7 @@
             var dir, val;
             dir = 2 * (x < change.pageX) - 1;
             val = elem.data("value");
-            val = Math.max(Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), o.max || Infinity), o.min || -Infinity);
+            val = Math.max(Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), o.max === 0 ? o.max : o.max || Infinity), o.min === 0 ? o.min : o.min || -Infinity);
             if (o.integer != null) {
               val = Math.floor(val);
             }

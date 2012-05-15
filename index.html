@@ -242,6 +242,15 @@
 $("#ralph-nader").numbers({max: 1000000, min: 0, step: 10});</pre>
 			</div>
 		</div>
+
+		<div class='desc'>
+			<h2>Number Selection with decimals</h2>
+			<div class='example'>
+				<blockquote>Addiction should never be treated as a crime. It has to be treated as a health problem. We do not send alcoholics to jail in this country. Over <span id='ralph-nader2' class='adjustable-number'>10</span>% of the people in our jails who are nonviolent drug users.</blockquote>
+				<pre class='sh_javascript_dom'>
+$("#ralph-nader2").numbers({max: 100, min: 0.1, integer: false, step: 0.1});</pre>
+			</div>
+		</div>
 		
 		<div class='desc'>
 			<h2>Boolean Flip</h2>
@@ -306,6 +315,7 @@ if(!this.sh_languages){this.sh_languages={}}var sh_requests={};function sh_isEma
 		sh_highlightDocument();
 		
 		$("#ralph-nader").numbers({max: 1000000, min: 0, step: 10});
+    $("#ralph-nader2").numbers({max: 100, min: 0.1, integer: false, step: 0.1});
 		
 		$("#system-of-a-down").numbers({max: 10000000, min: 0, step: 10000})
 			.bind("verdictChange", function(e, prisoners) {

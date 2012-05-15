@@ -20,6 +20,9 @@
 (function($) {
   $.format || ($.format = {});
   $.format.num = function(num) {
+    if (!/^-?\d+$/.test(num)) {
+      num = num.toFixed(2);
+    }
     return ('' + num).replace(/(\d+)(\..*)?/, function($0, $1, $2) {
       return $1.replace(/(\d)(?=(\d{3})+$)/g, '$1,') + ($2 || '');
     });

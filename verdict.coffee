@@ -19,7 +19,13 @@
   # -34234235 => -34,234,235
   # I am so gonna regret this later
   $.format ||= {}
-  $.format.num = (num) -> (''+num).replace(/(\d+)(\..*)?/, ($0,$1,$2) -> $1.replace(/(\d)(?=(\d{3})+$)/g,'$1,') + ($2 || ''))
+  $.format.num = (num) ->
+    # check if it's integer
+    if not /^-?\d+$/.test num
+      # force 2 decimals at most
+      num = num.toFixed(2)
+
+    (''+num).replace(/(\d+)(\..*)?/, ($0,$1,$2) -> $1.replace(/(\d)(?=(\d{3})+$)/g,'$1,') + ($2 || ''))
 
   $.fn.numbers = (opts) ->
     defaults =

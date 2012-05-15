@@ -21,7 +21,7 @@
   $.format ||= {}
   $.format.num = (num) -> (''+num).replace(/(\d+)(\..*)?/, ($0,$1,$2) -> $1.replace(/(\d)(?=(\d{3})+$)/g,'$1,') + ($2 || ''))
 
-  $.fn.numbers = (o) ->
+  $.fn.numbers = (opts) ->
     defaults =
       # max: 200
       # min: 0
@@ -29,7 +29,7 @@
       integer: true
       growth: 2
 
-    o = $.extend defaults, o
+    o = $.extend {}, defaults, opts
 
     # Add the event handlers
     numberDrag = (elem) ->
@@ -46,8 +46,8 @@
           dir = 2 * (x < change.pageX) - 1 # if x < lastX then 1 else -1 :-)
           val = elem.data("value")
           val = Math.max(Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), if o.max == 0 then o.max else (o.max || Infinity) ), if o.min == 0 then o.min else (o.min || -Infinity))
-          val = Math.floor(val) if o.integer?
-          elem.data('value', val);
+          val = Math.floor(val) if o.integer
+          elem.data('value', val)
           elem.text($.format.num val)
           x = change.pageX
 
